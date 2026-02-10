@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Teddy Day, Vinni 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #ff8fb1;
+      --bg-2: #ff5fa2;
+      --bg-3: #c84fff;
+      --glass: rgba(255, 255, 255, 0.18);
+      --text: #fff7fb;
+      --accent: #ffe1ef;
+      --shadow: rgba(88, 2, 54, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      background: radial-gradient(circle at 20% 20%, #ffbad3 0%, transparent 35%),
+                  radial-gradient(circle at 80% 25%, #ff9fd0 0%, transparent 30%),
+                  radial-gradient(circle at 50% 80%, #c887ff 0%, transparent 40%),
+                  linear-gradient(135deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      perspective: 1200px;
+    }
+
+    .sparkle-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.85);
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0% { transform: translate3d(0, 0, 0) scale(0.4); opacity: 0.15; }
+      30% { opacity: 1; }
+      100% { transform: translate3d(var(--x-drift), -110vh, 0) scale(1.25); opacity: 0; }
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 22px 56px;
+      transform-style: preserve-3d;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      text-shadow: 0 12px 34px rgba(103, 1, 67, 0.4);
+    }
+
+    .hero h1 span {
+      color: #fff0f8;
+      text-shadow: 0 0 24px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: 14px auto 0;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      opacity: 0.95;
+    }
+
+    .emoji-ribbon {
+      margin-top: 16px;
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      letter-spacing: 8px;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      transform-style: preserve-3d;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(9px);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 18px 34px var(--shadow);
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      will-change: transform;
+      min-height: 250px;
+    }
+
+    .card:hover {
+      box-shadow: 0 26px 45px rgba(93, 0, 57, 0.45);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+    }
+
+    .teddy-stage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(95px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .teddy {
+      border-radius: 16px;
+      text-align: center;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform-style: preserve-3d;
+      animation: floaty 4s ease-in-out infinite;
+    }
+
+    .teddy:nth-child(2) { animation-delay: 0.6s; }
+    .teddy:nth-child(3) { animation-delay: 1.2s; }
+    .teddy:nth-child(4) { animation-delay: 1.8s; }
+
+    .teddy .face {
+      font-size: 2.1rem;
+      display: block;
+      transform: translateZ(20px);
+    }
+
+    .teddy p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .quote-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 190px;
+    }
+
+    .quote {
+      font-size: 1.03rem;
+      line-height: 1.6;
+      font-weight: 400;
+      transition: opacity 0.4s ease;
+      margin-bottom: 12px;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      color: #ffe8f4;
+    }
+
+    .love-note {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-top: 13px;
+      background: rgba(255, 255, 255, 0.23);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) translateZ(12px) rotateX(0deg); }
+      50% { transform: translateY(-8px) translateZ(26px) rotateX(6deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 540px) {
+      .emoji-ribbon { letter-spacing: 4px; }
+      .card { min-height: 210px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkle-layer" id="sparkles"></div>
+
+  <main class="wrapper" id="scene">
+    <section class="hero">
+      <h1>Happy Teddy Day, <span>Vinni</span> 🧸💗</h1>
+      <p>
+        For my beautiful love — you make every hug warmer, every smile brighter, and every day feel magical.
+        This little teddy universe is only for you.
+      </p>
+      <div class="emoji-ribbon">💖 🧸 💞 💘 💝 🫶 🌸 ✨</div>
+    </section>
+
+    <section class="grid">
+      <article class="card" data-depth="16">
+        <h2>Teddy Squad for Vinni 🧸</h2>
+        <div class="teddy-stage">
+          <div class="teddy"><span class="face">🧸</span><p>Morning Hug</p></div>
+          <div class="teddy"><span class="face">🐻💗</span><p>Sweet Protector</p></div>
+          <div class="teddy"><span class="face">🧸🌹</span><p>Romantic Bear</p></div>
+          <div class="teddy"><span class="face">🧸✨</span><p>Dream Teddy</p></div>
+        </div>
+      </article>
+
+      <article class="card quote-box" data-depth="22">
+        <h2>Love Quotes</h2>
+        <p class="quote" id="quoteText"></p>
+        <p class="quote-author" id="quoteAuthor"></p>
+      </article>
+
+      <article class="card" data-depth="12">
+        <h2>A Note for You 💌</h2>
+        <p class="love-note">
+          Vinni, if I could gift you one thing today, I’d gift you the way I see you:
+          rare, gentle, radiant, and deeply lovable. May this Teddy Day wrap you in joy,
+          comfort, and endless cuddles from my heart to yours.
+        </p>
+        <span class="badge">💍 Forever Yours • 💗 Always</span>
+      </article>
+    </section>
+
+    <p class="footer">Made with infinite love for Vinni on Teddy Day 🧸💞✨</p>
+  </main>
+
+  <script>
+    const quotes = [
+      { text: "In your smile, I find my favorite home.", author: "— For Vinni" },
+      { text: "Your love is the softest teddy hug my heart has ever known.", author: "— Your Lover" },
+      { text: "Every heartbeat of mine spells your name, Vinni.", author: "— Always" },
+      { text: "If love had a face, it would look like your kindness.", author: "— With Love" },
+      { text: "You are my today, my tomorrow, and every warm cuddle in between.", author: "— Forever" }
+    ];
+
+    const quoteText = document.getElementById('quoteText');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    let quoteIndex = 0;
+
+    function renderQuote() {
+      quoteText.style.opacity = 0;
+      quoteAuthor.style.opacity = 0;
+      setTimeout(() => {
+        const q = quotes[quoteIndex % quotes.length];
+        quoteText.textContent = `“${q.text}”`;
+        quoteAuthor.textContent = q.author;
+        quoteText.style.opacity = 1;
+        quoteAuthor.style.opacity = 1;
+        quoteIndex++;
+      }, 200);
+    }
+
+    renderQuote();
+    setInterval(renderQuote, 3000);
+
+    const cards = document.querySelectorAll('.card');
+    const scene = document.getElementById('scene');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+      scene.style.transform = `rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 3).toFixed(2)}deg)`;
+
+      cards.forEach((card) => {
+        const depth = Number(card.dataset.depth || 10);
+        card.style.transform = `translateZ(${depth}px) rotateY(${(x * depth / 15).toFixed(2)}deg) rotateX(${(-y * depth / 18).toFixed(2)}deg)`;
+      });
+    });
+
+    const sparkleContainer = document.getElementById('sparkles');
+    const sparkleCount = 64;
+
+    for (let i = 0; i < sparkleCount; i++) {
+      const s = document.createElement('span');
+      s.className = 'sparkle';
+      const size = Math.random() * 7 + 3;
+      s.style.width = `${size}px`;
+      s.style.height = `${size}px`;
+      s.style.left = `${Math.random() * 100}%`;
+      s.style.bottom = `${-Math.random() * 110}px`;
+      s.style.opacity = `${Math.random() * 0.9 + 0.1}`;
+      s.style.setProperty('--x-drift', `${(Math.random() - 0.5) * 80}px`);
+      s.style.animationDuration = `${Math.random() * 8 + 6}s`;
+      s.style.animationDelay = `${Math.random() * 8}s`;
+      sparkleContainer.appendChild(s);
+    }
+  </script>
+</body>
+</html>
